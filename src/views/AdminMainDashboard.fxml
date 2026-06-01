@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane fx:id="rootPane" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminMainDashboardController">
+    
+    <top>
+         <MenuBar BorderPane.alignment="CENTER">
+    <menus>
+        <Menu text="File">
+            <items>
+                <MenuItem text="Exit" onAction="#handleApplicationShutdown">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/exit1.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+            </items>
+        </Menu>
+        <Menu text="Format">
+            <items>
+                <Menu text="Font Size">
+                    <items>
+                        <RadioMenuItem text="Small">
+                            <toggleGroup><ToggleGroup fx:id="fontSizeGroup"/></toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem selected="true" text="Medium">
+                            <toggleGroup><fx:reference source="fontSizeGroup"/></toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem text="Large">
+                            <toggleGroup><fx:reference source="fontSizeGroup"/></toggleGroup>
+                        </RadioMenuItem>
+                    </items>
+                </Menu>
+                <Menu text="Font Family">
+                    <items>
+                        <RadioMenuItem text="Segoe UI" selected="true">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="fontFamilyGroup"/>
+                            </toggleGroup>
+                        </RadioMenuItem>
+
+                        <RadioMenuItem text="Arial">
+                            <toggleGroup>
+                                <fx:reference source="fontFamilyGroup"/>
+                            </toggleGroup>
+                        </RadioMenuItem>
+
+                        <RadioMenuItem text="Times New Roman">
+                            <toggleGroup>
+                                <fx:reference source="fontFamilyGroup"/>
+                            </toggleGroup>
+                        </RadioMenuItem>
+                    </items>
+                </Menu>
+                <Menu text="Background Color">
+                    <items>
+                        <RadioMenuItem fx:id="menuThemeLight" text="☀️ Light Mode" onAction="#handleThemeSwitch" />
+                        <RadioMenuItem fx:id="menuThemeDark" text="🌙 Dark Mode" onAction="#handleThemeSwitch" />
+                    </items>
+                </Menu>
+            </items>
+        </Menu>
+        <Menu text="Help">
+            <items>
+                <MenuItem text="About App" onAction="#handleShowAbout">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/help1.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuItem>
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>
+    </top>
+
+    <left>
+        <VBox prefWidth="240.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="5.0">
+                    <children>
+                        <Label text="GHADS" textFill="WHITE"><font><Font name="Segoe UI Bold" size="24.0" /></font></Label>
+                        <Label text="Gaza Humanitarian Aid" textFill="#94a3b8"><font><Font name="Segoe UI" size="11.0" /></font></Label>
+                    </children>
+                    <VBox.margin><Insets bottom="30.0" left="10.0" top="10.0" /></VBox.margin>
+                </VBox>
+
+                <VBox prefWidth="200.0" spacing="8.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="btnAdminStats" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="📊  Dashboard" />
+                        <Button fx:id="btnUserManagement" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="👥  User Management" />
+                        <Button fx:id="btnOrganizationManagement" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="🏢  Organizations" />
+                        <Button fx:id="btnAdminFamilyManagement" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="👨‍👩‍👧‍👦  Family Management" />
+                        <Button fx:id="btnAidDistributions" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="📦  Aid Distributions" />
+                        <Button fx:id="btnAdminChangePassword" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminNavigation" prefHeight="45.0" styleClass="nav-button" text="🔑  Change Password" />
+                    </children>
+                </VBox>
+
+                <VBox alignment="BOTTOM_CENTER" prefHeight="80.0">
+                    <children>
+                        <Button fx:id="btnAdminLogout" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" onAction="#handleAdminLogout" prefHeight="45.0" styleClass="logout-button" text="🚪  Logout" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox styleClass="content-area" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="80.0">
+                    <children>
+                        <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="lblViewTitle" text="Dashboard Overview" textFill="#1e293b"><font><Font name="Segoe UI Bold" size="22.0" /></font></Label>
+                                <Label fx:id="lblViewSubtitle" text="System status and summary statistics" textFill="#64748b"><font><Font name="Segoe UI" size="13.0" /></font></Label>
+                            </children>
+                        </VBox>
+                        <Label styleClass="role-badge" text="Role: Admin" />
+                    </children>
+                    <VBox.margin><Insets bottom="20.0" left="30.0" right="30.0" top="20.0" /></VBox.margin>
+                </HBox>
+                <StackPane fx:id="adminContentArea" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

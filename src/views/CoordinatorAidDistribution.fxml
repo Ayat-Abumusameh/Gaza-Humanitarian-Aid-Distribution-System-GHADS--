@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="650.0" prefWidth="950.0" spacing="20.0" styleClass="page-container" 
+      stylesheets="@../styles/styles.css" 
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="controllers.CoordinatorAidDistributionController">
+   <children>
+      <VBox spacing="5.0">
+         <children>
+            <Label text="Aid Distribution Management" textFill="#1e293b">
+               <font><Font name="Segoe UI Bold" size="22.0" /></font>
+            </Label>
+            <Label text="Identify vulnerable families, check eligibility constraints, and record field distributions" textFill="#64748b" />
+         </children>
+      </VBox>
+      
+      <HBox alignment="CENTER_LEFT" prefHeight="60.0" styleClass="search-filter-bar">
+         <children>
+            <Label style="-fx-font-weight: bold;" text="Target Selection Filters:" textFill="#475569">
+               <HBox.margin><Insets right="10.0" /></HBox.margin>
+            </Label>
+            
+            <Button fx:id="btnFilterHighVulnerability" onAction="#handleFilterHighVulnerability" 
+                    styleClass="btn-filter-success" text="🔥 High Vulnerability First" />
+            
+            <Button fx:id="btnFilterNeverServed" onAction="#handleFilterNeverServed" 
+                    styleClass="btn-filter-warning" text="⚠️ Never Served Families" />
+            
+            <Button fx:id="btnClearFilters" onAction="#handleClearFilters" 
+                    styleClass="btn-form-reset" text="🔄 Reset" />
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <Button fx:id="btnRecordAidDistribution" onAction="#handleOpenAddDistributionForm" 
+                    styleClass="btn-primary-action" text="📦 Record Aid Distribution" />
+         </children>
+      </HBox>
+
+      <TableView fx:id="tblDistributionFamilies" style="-fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colDistFamilyId" prefWidth="90.0" text="Family ID" />
+          <TableColumn fx:id="colDistNationalId" prefWidth="130.0" text="National ID" />
+          <TableColumn fx:id="colDistHouseholdName" prefWidth="180.0" text="Household Name" />
+          <TableColumn fx:id="colDistFamilySize" prefWidth="100.0" text="Family Size" />
+          <TableColumn fx:id="colDistLocation" prefWidth="130.0" text="Location" />
+          <TableColumn fx:id="colDistVulnerabilityLevel" prefWidth="140.0" text="Vulnerability Level" />
+          <TableColumn fx:id="colDistLastAidDate" prefWidth="150.0" text="Last Aid Date" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</VBox>

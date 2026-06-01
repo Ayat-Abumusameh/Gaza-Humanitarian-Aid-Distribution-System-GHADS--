@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefWidth="500.0" spacing="15.0" style="-fx-border-color: #0284c7; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="form-container" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CoordinatorAddAidDistributionFormController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="📦 Record Field Aid Distribution" textFill="#0284c7">
+               <font><Font name="Segoe UI Bold" size="18.0" /></font>
+            </Label>
+         </children>
+      </HBox>
+      <Separator />
+      
+      <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label styleClass="input-label" text="Family Head:" />
+            <Label fx:id="lblFamilyName" text="Loading..." textFill="#1e293b" GridPane.columnIndex="1" />
+            
+            <Label styleClass="input-label" text="Vulnerability:" GridPane.rowIndex="1" />
+            <Label fx:id="lblVulnerabilityLevel" text="Loading..." textFill="#1e293b" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            
+            <Label styleClass="input-label" text="Last Aid Date:" GridPane.rowIndex="2" />
+            <Label fx:id="lblLastAidDate" text="Loading..." textFill="#1e293b" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      
+      <Separator />
+      
+      <VBox spacing="5.0">
+         <Label styleClass="input-label" text="Distributing Organization" />
+         <TextField fx:id="txtOrganizationName" promptText="e.g., UNRWA" styleClass="form-field" />
+      </VBox>
+      
+      <VBox spacing="5.0">
+         <Label styleClass="input-label" text="Aid Package Details" />
+         <TextField fx:id="txtAidDetails" promptText="e.g., Food" styleClass="form-field" />
+      </VBox>
+      
+      <VBox spacing="5.0">
+         <Label styleClass="input-label" text="Distribution Date" />
+         <DatePicker fx:id="dpDistributionDate" maxWidth="1.7976931348623157E308" styleClass="form-field" />
+      </VBox>
+
+      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" spacing="12.0">
+         <children>
+            <Button fx:id="btnReset" onAction="#handleReset" styleClass="btn-form-reset" text="Reset" />
+            <Button onAction="#handleCancel" styleClass="btn-form-cancel" text="Cancel" />
+            <Button onAction="#handleSaveDistribution" styleClass="btn-save" text="Verify &amp; Save" />
+         </children>
+         <VBox.margin><Insets top="10.0" /></VBox.margin>
+      </HBox>
+   </children>
+</VBox>

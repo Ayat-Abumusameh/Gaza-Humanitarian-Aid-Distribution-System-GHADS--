@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" 
+            stylesheets="@../styles/styles.css" 
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controllers.AdminStatsController">
+   <content>
+      <GridPane hgap="20.0" vgap="20.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="240.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="240.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="240.0" />
+         </columnConstraints>
+         <children>
+            <VBox styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <Label styleClass="stat-title" text="Total Organizations" />
+               <Label fx:id="lblTotalOrganizations" styleClass="stat-value" text="0" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <Label styleClass="stat-title" text="Total Users (Coordinators)" />
+               <Label fx:id="lblTotalCoordinators" styleClass="stat-value" text="0" />
+            </VBox>
+            
+            <VBox styleClass="stat-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+               <Label styleClass="stat-title" text="Total Families Registered" />
+               <Label fx:id="lblTotalFamilies" styleClass="stat-value" text="0" />
+            </VBox>
+            
+            <VBox styleClass="stat-card, stat-card-green" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <Label styleClass="stat-title" text="Total Families Served" />
+               <Label fx:id="lblFamiliesServed" styleClass="stat-value" text="0" />
+            </VBox>
+            
+            <VBox styleClass="stat-card, stat-card-amber" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Label styleClass="stat-title" text="Total Families Not Served" />
+               <Label fx:id="lblFamiliesNotServed" styleClass="stat-value" text="0" />
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </GridPane>
+   </content>
+</ScrollPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefWidth="450.0" spacing="15.0" styleClass="form-container" 
+      stylesheets="@../styles/styles.css" 
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="controllers.AddUserFormController">
+   <children>
+      <Label text="User Information" textFill="#1e293b">
+         <font><Font name="Segoe UI Bold" size="18.0" /></font>
+      </Label>
+      <Separator />
+      
+      <VBox spacing="5.0">
+         <Label styleClass="input-label" text="Full Name" />
+         <TextField fx:id="txtFullName" promptText="Enter full name" styleClass="form-field" />
+      </VBox>
+      
+      <HBox spacing="15.0">
+         <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="input-label" text="Username" />
+            <TextField fx:id="txtUsername" promptText="username" styleClass="form-field" />
+         </VBox>
+         <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="input-label" text="Password" />
+            <PasswordField fx:id="txtPassword" promptText="••••••••" styleClass="form-field" />
+         </VBox>
+      </HBox>
+      
+      <VBox spacing="5.0">
+         <Label styleClass="input-label" text="Email Address" />
+         <TextField fx:id="txtEmail" promptText="email@example.com" styleClass="form-field" />
+      </VBox>
+      
+      <HBox spacing="15.0">
+         <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="input-label" text="Role" />
+            <ComboBox fx:id="comboRole" maxWidth="1.7976931348623157E308" promptText="Select Role" styleClass="form-field" />
+         </VBox>
+         <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+            <Label styleClass="input-label" text="Organization" />
+            <ComboBox fx:id="comboOrganization" maxWidth="1.7976931348623157E308" promptText="Select Org" styleClass="form-field" />
+         </VBox>
+      </HBox>
+      
+      <HBox alignment="CENTER_RIGHT" prefHeight="60.0" spacing="10.0">
+         <children>
+            <Button fx:id="btnReset" onAction="#handleReset" prefHeight="35.0" prefWidth="100.0" styleClass="btn-form-reset" text="Reset" />
+            <Button onAction="#handleCancel" prefHeight="35.0" prefWidth="100.0" styleClass="btn-form-cancel" text="Cancel" />
+            <Button onAction="#handleSaveUser" prefHeight="35.0" prefWidth="120.0" styleClass="btn-save" text="Save User" />
+         </children>
+         <VBox.margin><Insets top="10.0" /></VBox.margin>
+      </HBox>
+   </children>
+</VBox>

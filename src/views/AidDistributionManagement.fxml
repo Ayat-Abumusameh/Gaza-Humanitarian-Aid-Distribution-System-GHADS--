@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="620.0" prefWidth="900.0" spacing="20.0" styleClass="page-container" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AidDistributionManagementController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Aid Distributions Overview" textFill="#1e293b">
+                     <font><Font name="Segoe UI Bold" size="22.0" /></font>
+                  </Label>
+                  <Label text="Monitor and track all humanitarian aid operations across registered organizations" textFill="#64748b" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="search-filter-bar">
+         <children>
+            <TextField fx:id="txtSearchDistribution" prefHeight="35.0" prefWidth="350.0" promptText="Search by Coordinator ID (Distributed By)" styleClass="search-field" />
+         </children>
+      </HBox>
+
+      <TableView fx:id="tblDistributions" prefHeight="430.0" style="-fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colDistributionId" prefWidth="130.0" text="Distribution ID" />
+          <TableColumn fx:id="colFamilyId" prefWidth="150.0" text="Family ID" />
+          <TableColumn fx:id="colOrganizationId" prefWidth="150.0" text="Organization ID" />
+          <TableColumn fx:id="colDistributedBy" prefWidth="170.0" text="Distributed By" />
+          <TableColumn fx:id="colDistributionDate" prefWidth="170.0" text="Distribution Date" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</VBox>

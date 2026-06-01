@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="620.0" prefWidth="810.0" spacing="20.0" styleClass="page-container" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OrganizationManagementController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Organization Management" textFill="#1e293b">
+                     <font><Font name="Segoe UI Bold" size="22.0" /></font>
+                  </Label>
+                  <Label text="Register and manage humanitarian partners and NGOs" textFill="#64748b" />
+               </children>
+            </VBox>
+            <Button onAction="#handleAddOrganization" prefHeight="40.0" prefWidth="180.0" styleClass="btn-primary-action" text="+ Add Organization" />
+         </children>
+      </HBox>
+
+      <TableView fx:id="tblOrganizations" prefHeight="400.0" style="-fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="colOrgName" prefWidth="250.0" text="Organization Name" />
+          <TableColumn fx:id="colOrgType" prefWidth="150.0" text="Type (NGO / Int.)" />
+          <TableColumn fx:id="colOrgContact" prefWidth="320.0" text="Contact Info" />
+        </columns>
+      </TableView>
+      
+      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         <children>
+            <Button onAction="#handleEditOrganization" prefHeight="35.0" prefWidth="100.0" styleClass="btn-secondary-action" text="Edit Details" />
+            <Button onAction="#handleDeleteOrganization" prefHeight="35.0" prefWidth="150.0" styleClass="btn-danger-action" text="Remove from System" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

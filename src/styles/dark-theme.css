@@ -1,0 +1,30 @@
+.root {
+    -frth-clr: #020617;
+    -sec-clr: #1e293b;
+    -eight-clr: #0f172a;
+    
+    -seven-clr: #f1f5f9;
+    -nine-clr: #94a3b8;
+    
+    -eleven-clr: #38bdf8;
+    -pri-clr: #38bdf8;
+    
+    -six-clor: #0f172a;
+    -fivth-clr: #334155;
+}
+
+.login-card, .stat-card, .card-stat, .search-filter-bar, .form-container {
+    -fx-background-color: #1e293b !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);
+}
+
+.stat-title, .stat-value, .input-label {
+    -fx-text-fill: white !important;
+}
+
+.table-view {
+    -fx-background-color: #1e293b;
+}
+.table-view .column-header {
+    -fx-background-color: #0f172a;
+}

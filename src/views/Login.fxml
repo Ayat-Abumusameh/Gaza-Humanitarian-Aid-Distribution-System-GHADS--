@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f1f5f9; -fx-padding: 20;" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+    
+    <children>
+        <VBox maxWidth="400.0" spacing="20.0" styleClass="login-card">
+            <children>
+                <VBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Label text="GHADS" textFill="#0284c7">
+                            <font><Font name="Segoe UI Bold" size="32.0" /></font>
+                        </Label>
+                        <Label text="Gaza Humanitarian Aid Distribution System" textFill="#64748b">
+                            <font><Font name="Segoe UI" size="12.0" /></font>
+                        </Label>
+                    </children>
+                </VBox>
+                
+                <Separator prefWidth="200.0" />
+                
+                <VBox spacing="6.0">
+                    <Label style="-fx-font-weight: bold;" text="Username" textFill="#475569" />
+                    <TextField fx:id="txtUsername" prefHeight="40.0" styleClass="text-input-field" />
+                </VBox>
+                
+                <VBox spacing="6.0">
+                    <Label style="-fx-font-weight: bold;" text="Password" textFill="#475569" />
+                    <PasswordField fx:id="txtPassword" prefHeight="40.0" styleClass="text-input-field" />
+                </VBox>
+                
+                <VBox spacing="6.0">
+                    <Label style="-fx-font-weight: bold;" text="Select Role" textFill="#475569" />
+                    <ComboBox fx:id="comboRole" maxWidth="1.7976931348623157E308" prefHeight="40.0" promptText="Choose your role..." styleClass="text-input-field" />
+                </VBox>
+                
+                <HBox maxWidth="1.7976931348623157E308" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnReset" maxWidth="1.7976931348623157E308" onAction="#handleReset" prefHeight="45.0" styleClass="btn-form-reset" text="Reset" HBox.hgrow="ALWAYS" />
+                        <Button maxWidth="1.7976931348623157E308" onAction="#handleLogin" prefHeight="45.0" styleClass="btn-primary" text="Sign In" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

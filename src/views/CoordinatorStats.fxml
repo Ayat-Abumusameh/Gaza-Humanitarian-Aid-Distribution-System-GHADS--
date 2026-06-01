@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="550.0" prefWidth="850.0" spacing="30.0" styleClass="page-container" 
+      stylesheets="@../styles/styles.css" 
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="controllers.CoordinatorStatsController">
+   <children>
+      <GridPane hgap="20.0" vgap="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="130.0" prefHeight="130.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            
+            <VBox styleClass="card-stat" GridPane.columnIndex="0">
+               <Label styleClass="text-gray" text="Total Registered Families">
+                  <font><Font name="Segoe UI Bold" size="14.0" /></font>
+               </Label>
+               <Region VBox.vgrow="ALWAYS" />
+               <Label fx:id="lblTotalFamilies" text="0">
+                  <font><Font name="Segoe UI Bold" size="32.0" /></font>
+               </Label>
+               <Label styleClass="text-gray" text="Global system registry" textFill="#94a3b8">
+                  <font><Font size="11.0" /></font>
+               </Label>
+            </VBox>
+            
+            <VBox styleClass="card-stat" GridPane.columnIndex="1">
+               <Label styleClass="text-blue" text="Families Served by Us">
+                  <font><Font name="Segoe UI Bold" size="14.0" /></font>
+               </Label>
+               <Region VBox.vgrow="ALWAYS" />
+               <Label fx:id="lblFamiliesServed" styleClass="text-blue" text="0">
+                  <font><Font name="Segoe UI Bold" size="32.0" /></font>
+               </Label>
+               <Label styleClass="text-gray" text="Supported by your organization">
+                  <font><Font size="11.0" /></font>
+               </Label>
+            </VBox>
+            
+            <VBox styleClass="card-stat" GridPane.columnIndex="2">
+               <Label styleClass="text-amber" text="Families Not Yet Served">
+                  <font><Font name="Segoe UI Bold" size="14.0" /></font>
+               </Label>
+               <Region VBox.vgrow="ALWAYS" />
+               <Label fx:id="lblFamiliesNotServed" styleClass="text-amber" text="0">
+                  <font><Font name="Segoe UI Bold" size="32.0" /></font>
+               </Label>
+               <Label styleClass="text-gray" text="Awaiting aid delivery">
+                  <font><Font size="11.0" /></font>
+               </Label>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<BorderPane fx:id="rootPane" prefHeight="700.0" prefWidth="1150.0" 
+            stylesheets="@../styles/styles.css" 
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controllers.CoordinatorMainDashboardController">
+   <top>
+            <MenuBar BorderPane.alignment="CENTER">
+          <menus>
+              <Menu text="File">
+                  <items>
+                      <MenuItem text="Exit" onAction="#handleApplicationShutdown">
+                          <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@../images/exit1.jpg" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </MenuItem>
+                  </items>
+              </Menu>
+              <Menu text="Format">
+                  <items>
+                      <Menu text="Font Size">
+                          <items>
+                              <RadioMenuItem text="Small">
+                                  <toggleGroup><ToggleGroup fx:id="fontSizeGroup"/></toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem selected="true" text="Medium">
+                                  <toggleGroup><fx:reference source="fontSizeGroup"/></toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem text="Large">
+                                  <toggleGroup><fx:reference source="fontSizeGroup"/></toggleGroup>
+                              </RadioMenuItem>
+                          </items>
+                      </Menu>
+                      <Menu text="Font Family">
+                          <items>
+                              <RadioMenuItem text="Segoe UI" selected="true">
+                                  <toggleGroup>
+                                      <ToggleGroup fx:id="fontFamilyGroup"/>
+                                  </toggleGroup>
+                              </RadioMenuItem>
+
+                              <RadioMenuItem text="Arial">
+                                  <toggleGroup>
+                                      <fx:reference source="fontFamilyGroup"/>
+                                  </toggleGroup>
+                              </RadioMenuItem>
+
+                              <RadioMenuItem text="Times New Roman">
+                                  <toggleGroup>
+                                      <fx:reference source="fontFamilyGroup"/>
+                                  </toggleGroup>
+                              </RadioMenuItem>
+                          </items>
+                      </Menu>
+                      <Menu text="Background Color">
+                          <items>
+                              <RadioMenuItem fx:id="menuThemeLight" text="☀️ Light Mode" onAction="#handleThemeSwitch" />
+                              <RadioMenuItem fx:id="menuThemeDark" text="🌙 Dark Mode" onAction="#handleThemeSwitch" />
+                          </items>
+                      </Menu>
+                  </items>
+              </Menu>
+              <Menu text="Help">
+                  <items>
+                      <MenuItem text="About App" onAction="#handleShowAbout">
+                          <graphic>
+                              <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@../images/help1.jpg" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </MenuItem>
+                  </items>
+              </Menu>
+          </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox styleClass="sidebar" prefWidth="260.0" BorderPane.alignment="CENTER">
+          <children>
+            <VBox alignment="CENTER_LEFT" spacing="5.0">
+               <children>
+                  <Label text="GHADS" textFill="WHITE"><font><Font name="Segoe UI Bold" size="24.0" /></font></Label>
+                  <Label text="Field Coordinator Portal" textFill="#38bdf8"><font><Font name="Segoe UI Bold" size="11.0" /></font></Label>
+               </children>
+               <VBox.margin><Insets bottom="25.0" left="10.0" top="10.0" /></VBox.margin>
+            </VBox>
+            
+            <VBox spacing="6.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="btnCoordStats" styleClass="nav-button, nav-button-active" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorNavigation" prefHeight="45.0" text="📊  Statistics" />
+                  <Button fx:id="btnCoordProfile" styleClass="nav-button" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorNavigation" prefHeight="45.0" text="👤  Profile" />
+                  <Button fx:id="btnCoordFamilyManagement" styleClass="nav-button" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorNavigation" prefHeight="45.0" text="👨‍👩‍👧‍👦  Family Management" />
+                  <Button fx:id="btnCoordAidDistribution" styleClass="nav-button" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorNavigation" prefHeight="45.0" text="📦  Aid Distribution" />
+                  <Button fx:id="btnCoordChangePassword" styleClass="nav-button" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorNavigation" prefHeight="45.0" text="🔑  Change Password" />
+               </children>
+            </VBox>
+            
+            <Button fx:id="btnCoordLogout" styleClass="nav-button, btn-logout" maxWidth="1.7976931348623157E308" onAction="#handleCoordinatorLogout" prefHeight="45.0" text="🚪  Logout" />
+         </children>
+      </VBox>
+   </left>
+   
+   <center>
+      <VBox style="-fx-background-color: #f8fafc;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblViewTitle" text="Field Operations Dashboard" textFill="#1e293b"><font><Font name="Segoe UI Bold" size="22.0" /></font></Label>
+                        <Label fx:id="lblViewSubtitle" text="Real-time insights and field distribution metrics" textFill="#64748b"><font><Font name="Segoe UI" size="13.0" /></font></Label>
+                     </children>
+                  </VBox>
+                  <Label style="-fx-background-color: #e0f2fe; -fx-padding: 6 12 6 12; -fx-background-radius: 20; -fx-font-weight: bold;" text="Role: Field Coordinator" textFill="#0369a1" />
+               </children>
+               <VBox.margin><Insets bottom="20.0" left="30.0" right="30.0" top="25.0" /></VBox.margin>
+            </HBox>
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
